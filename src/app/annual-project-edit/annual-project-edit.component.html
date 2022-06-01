@@ -1,0 +1,27 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <form [formGroup]="annualProjectEditForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="financeCode">Finance Code:</label>
+      <select formControlName="financeCode" id="financeCode">
+        <option value="1">Code 1</option>
+        <option value="2">Code 2</option>
+        <option value="3">Code 3</option>
+      </select>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <input formControlName="description" id="description" type="text" />
+    </div>
+    <div>
+      <button type="submit" [disabled]="!annualProjectEditForm.valid">
+        Submit
+      </button>
+    </div>
+  </form>
+
+  <hr />
+
+  {{ annualProjectEditForm.value | json }}
+</ng-container>
+
+<ng-template #loading>Loading ... </ng-template>
