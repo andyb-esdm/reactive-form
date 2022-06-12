@@ -1,27 +1,61 @@
-<ng-container *ngIf="!isLoading; else loading">
-  <form [formGroup]="annualProjectEditForm" (ngSubmit)="onSubmit()">
-    <div>
-      <label for="financeCode">Finance Code:</label>
-      <select formControlName="financeCode" id="financeCode">
-        <option value="1">Code 1</option>
-        <option value="2">Code 2</option>
-        <option value="3">Code 3</option>
-      </select>
-    </div>
-    <div>
-      <label for="description">Description:</label>
-      <input formControlName="description" id="description" type="text" />
-    </div>
-    <div>
-      <button type="submit" [disabled]="!annualProjectEditForm.valid">
-        Submit
-      </button>
-    </div>
-  </form>
+<div class="container">
+  <h1>Edit Annual Project</h1>
+  <ng-container *ngIf="!isLoading; else loading">
+    <form [formGroup]="annualProjectEditForm" (ngSubmit)="onSubmit()">
+      <div class="mb-2">
+        <label for="financeCode" class="form-label">Finance Code:</label>
+        <select
+          formControlName="financeCode"
+          id="financeCode"
+          class="form-select"
+        >
+          <option value="1">Code 1</option>
+          <option value="2">Code 2</option>
+          <option value="3">Code 3</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <label for="description" class="form-label">Description:</label>
+        <input
+          formControlName="description"
+          id="description"
+          type="text"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="startDate" class="form-label">StartDate</label>
+        <input
+          type="date"
+          id="startDate"
+          formControlName="startDate"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-2">
+        <label for="endDate" class="form-label">EndDate</label>
+        <input
+          type="date"
+          id="endDate"
+          formControlName="endDate"
+          class="form-control"
+        />
+      </div>
+      <div class="d-flex justify-content-end mb-2">
+        <button
+          type="submit"
+          [disabled]="!annualProjectEditForm.valid"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
 
-  <hr />
+    <hr />
 
-  {{ annualProjectEditForm.value | json }}
-</ng-container>
+    {{ annualProjectEditForm.value | json }}
+  </ng-container>
 
-<ng-template #loading>Loading ... </ng-template>
+  <ng-template #loading>Loading ... </ng-template>
+</div>

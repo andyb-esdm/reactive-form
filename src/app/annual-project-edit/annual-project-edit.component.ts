@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormControl,
+  FormControlName,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { AnnualProjectService } from '../annual-project.service';
 import { AnnualProject } from '../models/annual-project.model';
 
@@ -12,6 +17,8 @@ export class AnnualProjectEditComponent implements OnInit {
   annualProjectEditForm = new FormGroup({
     financeCode: new FormControl('', [Validators.required]),
     description: new FormControl('', [Validators.required]),
+    startDate: new FormControl('', [Validators.required]),
+    endDate: new FormControl('', [Validators.required]),
   });
 
   annualProject: AnnualProject | null = null;

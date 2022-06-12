@@ -13,6 +13,8 @@ export class AnnualProjectService {
       id: '1',
       financeCode: '3',
       description: 'Annual Project Description 1',
+      startDate: '2021-10-09',
+      endDate: '2022-10-09',
     };
     return of(annualProject).pipe(delay(1000));
   }
